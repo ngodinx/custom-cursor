@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+* {
+    cursor: none;
+}
+@font-face {
+    font-family: ps;
+    src: url('Poppins-Regular.ttf');
+}
+body {
+    font-family: ps;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+ul {
+    display: flex;
+    overflow: hidden;
+}
+ul a {
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    height: 50px;
+    transition: .8s;
+    line-height: 50px;
+    width: 120px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+ul a::before{
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    transition: .8s;
+    mix-blend-mode: difference;
+    opacity: 0;
+    z-index: -1;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+ul a:hover::before{
+    opacity: 1;
+    transform: scale(20);
+}
+ul:hover .cursor {
+    opacity: 0;
+}
+ul a:hover ~ .cursor {
+    opacity: 0;
+}
+ul a:hover {
+    border-radius: 5px;
+    color: #000;
+    border: 2px solid transparent;
+}
+.cursor {
+    background-color: #fff;
+    height: 30px;
+    width: 30px;
+    transition: 0.01s;
+    position: fixed;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    border-radius: 50%;
+}
